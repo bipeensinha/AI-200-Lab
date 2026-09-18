@@ -1,0 +1,11 @@
+{
+    "servers": {
+        "ai-service-desk": {
+            "type": "stdio",
+            "command": "${workspaceFolder}\\labenv\\Scripts\\python.exe",
+            "args": [
+                "${workspaceFolder}\\mcp_server.py"
+            ]
+        }
+    }
+}

@@ -1,0 +1,26 @@
+ py -m venv labenv 
+ .\labenv\Scripts\Activate.ps1
+ pip install -r requirements.txt
+py app.py
+ ===============
+
+ 🟢 1. Network — High Priority
+
+I cannot connect to the company VPN and I have an important customer meeting in 30 minutes.
+
+Category: Network
+Priority: High
+
+🔵 2. Hardware — Medium
+
+My laptop battery is draining very quickly even when I am not running any applications.
+
+Category: Hardware
+Priority: Medium
+
+🟣 3. Identity — High
+
+I am unable to sign in to Microsoft 365 and my password reset is not working.
+
+Category: Identity
+Priority: High

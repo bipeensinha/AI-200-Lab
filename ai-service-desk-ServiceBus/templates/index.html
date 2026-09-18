@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Service Desk</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="logo-area">
+
+        <div class="logo">
+            🤖
+        </div>
+
+        <div class="brand">
+            <h1>
+                ENTERPRISE
+                <span>AI SERVICE DESK</span>
+            </h1>
+
+            <p>
+                AI Inference Request Portal
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="profile">
+
+        <img
+            class="developer-photo"
+            src="{{ url_for('static', filename='images/developer.png') }}"
+            alt="Bipeen Sinha"
+        >
+
+        <div class="profile-text">
+            <strong>Bipeen Sinha</strong>
+            <small>AI/ML Architect</small>
+        </div>
+
+    </div>
+
+</header>
+
+
+<div class="layout">
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar">
+
+    <div class="menu-item active">
+        🏠 &nbsp; Dashboard
+    </div>
+
+    <div class="menu-item">
+        💬 &nbsp; New Request
+    </div>
+
+    <div class="menu-item">
+        📋 &nbsp; My Requests
+    </div>
+
+    <div class="menu-item">
+        ⚡ &nbsp; Activity
+    </div>
+
+    <div class="menu-item">
+        📚 &nbsp; Knowledge Base
+    </div>
+
+    <div class="menu-item">
+        📊 &nbsp; Reports
+    </div>
+
+    <div class="menu-item">
+        ⚙️ &nbsp; Settings
+    </div>
+
+
+    <div class="ai-card">
+
+        <div class="ai-circle">
+            AI
+        </div>
+
+        <h3>AI Powered</h3>
+
+        <p>Smarter Support</p>
+        <p>Faster Resolution</p>
+        <p>Better Experience</p>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main class="main">
+
+
+    <div class="top-status">
+
+        <div class="online">
+            <span class="online-dot"></span>
+            System Online
+        </div>
+
+    </div>
+
+
+    <div class="content">
+
+
+<!-- =====================================================
+     LEFT SIDE
+===================================================== -->
+
+<div>
+
+
+<!-- REQUEST FORM -->
+
+<section class="card">
+
+    <h2>Create AI Inference Request</h2>
+
+    <p class="subtitle">
+        Describe your issue or question
+    </p>
+
+
+    <label for="issue">
+        Describe your issue *
+    </label>
+
+    <textarea
+        id="issue"
+        placeholder="Example: My laptop battery is draining very quickly."
+    ></textarea>
+
+
+    <div class="form-row">
+
+        <div>
+
+            <label for="category">
+                Category
+            </label>
+
+            <select id="category">
+
+                <option>Hardware</option>
+                <option>Network</option>
+                <option>Identity</option>
+                <option>Software</option>
+
+            </select>
+
+        </div>
+
+
+        <div>
+
+            <label for="priority">
+                Priority
+            </label>
+
+            <select id="priority">
+
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <div class="submit-area">
+
+        <button id="submitButton" onclick="submitRequest()">
+            ➤ Submit Request
+        </button>
+
+    </div>
+
+
+    <div id="message"></div>
+
+</section>
+
+
+<!-- WORKFLOW -->
+
+<section class="card">
+
+    <h2>AI Agent Workflow</h2>
+
+    <p class="subtitle">
+        Real-time status of your request
+    </p>
+
+
+    <div class="workflow">
+
+
+        <div class="step active" id="step1">
+
+            <div class="step-number">1</div>
+
+            <div class="step-icon">
+                📤
+            </div>
+
+            <h3>Request Received</h3>
+
+            <p>
+                Request submitted
+            </p>
+
+            <span class="status" id="status1">
+                Waiting
+            </span>
+
+        </div>
+
+
+        <div class="step" id="step2">
+
+            <div class="step-number">2</div>
+
+            <div class="step-icon">
+                📋
+            </div>
+
+            <h3>Queued in Service Bus</h3>
+
+            <p>
+                Request added to queue
+            </p>
+
+            <span class="status" id="status2">
+                Waiting
+            </span>
+
+        </div>
+
+
+        <div class="step" id="step3">
+
+            <div class="step-number">3</div>
+
+            <div class="step-icon">
+                ⚙️
+            </div>
+
+            <h3>AI Processing</h3>
+
+            <p>
+                AI analyzes request
+            </p>
+
+            <span class="status" id="status3">
+                Waiting
+            </span>
+
+        </div>
+
+
+        <div class="step" id="step4">
+
+            <div class="step-number">4</div>
+
+            <div class="step-icon">
+                ✓
+            </div>
+
+            <h3>Resolution Ready</h3>
+
+            <p>
+                Result available
+            </p>
+
+            <span class="status" id="status4">
+                Waiting
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</div>
+
+
+<!-- =====================================================
+     ACTIVITY FEED
+===================================================== -->
+
+<section class="card activity">
+
+    <h2>Activity Feed</h2>
+
+    <p class="subtitle">
+        Live activity
+    </p>
+
+
+    <div id="activityFeed">
+
+
+        <div class="activity-item">
+
+            <div class="activity-icon">
+                ℹ️
+            </div>
+
+            <div class="activity-text">
+
+                <strong>System Ready</strong>
+
+                <p>
+                    Waiting for an AI request
+                </p>
+
+                <time>
+                    Now
+                </time>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+    </div>
+
+</div>
+
+</main>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+
+
+
+</body>
+</html>

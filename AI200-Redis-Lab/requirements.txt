@@ -1,0 +1,3 @@
+redis
+azure-identity
+redis-entraid
